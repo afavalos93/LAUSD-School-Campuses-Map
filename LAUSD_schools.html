@@ -3,7 +3,8 @@
     	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
     	<script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
         <script src="leaflet.ajax.min.js"></script>
-      	<link rel="stylesheet" href="mystyle.css">
+        
+
         <title>LAUSD Schools Interactive Map</title>
         <meta name="tags" content="LAUSD, schools, maps, geojson" />
         <meta name="date" content="2016-09-08 16:30" />
@@ -11,14 +12,14 @@
         <meta name="category" content="Projects" />
         <meta name="author" content="Andres Avalos" />
         <meta name="summary" content="A map of schools with information on grade-levels and education programs." />
-
+		<meta charset="utf-8"/> 
         <style>
         #mapid { height: 72%;
         		 width: 100%; }
 
         body {  font-family: "Arial";
         		color: white;
-        		background-color: #b2abbf;
+        		background-color: #636363;
         		padding-top: 0px;
         		margin:0;
         	}
@@ -31,7 +32,8 @@
 
   		.button {
 			    background-color: white; /* Green */
-			    border: none;
+			    border-style:solid;
+
 			    border-radius: 5px;
 			    box-shadow: 0 1px #666;
 			    color: #666;
@@ -51,14 +53,14 @@
 
 
 		.button:active {
-				box-shadow: 0 2px #666;
+				box-shadow: 0 1px #666;
 				transform: translateY(2px);
 		}
 
-  		a:link    {color:#c7ebf0; background-color:transparent; text-decoration:none}
-		a:visited {color:#c7ebf0; background-color:transparent; text-decoration:none}
-		a:hover   {color:#bfd5e2; background-color:transparent; text-decoration:underline}
-		a:active  {color:#c7ebf0; background-color:transparent; text-decoration:underline}
+  		a:link    {color:pink; background-color:transparent; text-decoration:none}
+		a:visited {color:pink; background-color:transparent; text-decoration:none}
+		a:hover   {color:orange; background-color:transparent; text-decoration:underline}
+		a:active  {color:pink; background-color:transparent; text-decoration:underline}
 
 
         </style>
@@ -67,24 +69,21 @@
     <body>
         
          <center>
-         <div style="background-color:#b2abbf;padding-bottom:15px;padding-top:15px;font-size:5.8vh;">
+         <div style="background-color:#2c3e50;padding-bottom:15px;padding-top:15px;font-size:5.8vh;">
          Schools in Los Angeles Unified School District
          </div>
          
         
          <div class='custom-popup' id="mapid"></div>
-         <div style="background-color:#b2abbf;padding-top:5px;padding-bottom:5px;font-size:3vh;">
+         <div style="background-color:#7F7F7F;padding-top:5px;padding-bottom:5px;font-size:3vh;">
          <!--CONTROLS FOR MAP GO HERE-->
-
-
-			
          <button class="button" onclick="setElementarySchool(settings)">Elementary Schools</button>
          <button class="button" onclick="setMiddleSchool(settings)">Middle Schools</button>
          <button class="button" onclick="setHighSchool(settings)">High Schools</button> 
-         <button class="button" onclick="resetSchool(settings)">Reset</button> 
+         <button class="button" onclick="resetSchool(settings)">↺</button> 
          </a>
          </div>
-         <div style="background-color:#b1b5c8;padding-top:9px;padding-bottom:13px;font-size:3vh;position:fixed;bottom:0;width:100%;margin:0px;">
+         <div style="padding-top:15px;padding-bottom:10px;font-size:3vh;position:fixed;bottom:0;width:100%;">
          Map data provided by LA Times' <a href="https://github.com/datadesk/">Data Desk</a>. Available <a href="https://github.com/datadesk/lausd-school-campus-polygons">here</a>.
          </div>
          </center>
